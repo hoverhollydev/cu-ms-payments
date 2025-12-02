@@ -28,7 +28,7 @@ spec:
       containers:
         - name: cu-ms-payments
           # Imagen Docker a utilizar
-          image: hoverdev/cu-ms-payments:2
+          image: hoverdev/cu-ms-payments:{{ imageTag }}
           ports:
             # Puerto en el que escucha la aplicación dentro del contenedor
             - containerPort: 3000
