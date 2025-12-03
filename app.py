@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
 """
-API simple que responde Hola Mundo en el puerto 3000.
+Servidor HTTP simple que responde Hola Mundo
 """
-from flask import Flask
+import http.server
+import socketserver
 
-app = Flask(__name__)
+PORT = 3000
 
-@app.route('/', methods=['GET'])
-def hello():
-    return "Hola Mundo cu-ms-payments", 200
+class HolaMundoHandler(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(b'<h1>Hola Mundo</h1>')
+    
+    def log_message(self, format, *args):
+        print(f"{self.address_string()} - {format%args}")
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=3000, debug=False)
+    with socketserver.TCPServer(("", PORT), HolaMundoHandler) as httpd:
+        print(f"Servidor corriendo en puerto {PORT}")
+        print("Presiona Ctrl+C para detener")
+        httpd.serve_forever()
