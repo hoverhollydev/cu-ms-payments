@@ -41,6 +41,39 @@ spec:
             limits:
               cpu: 300m           # 300 milicores (0.3 CPU)
               memory: 512Mi       # 512 Megabytes
+          startupProbe:
+            #puede ser comando
+            #exec:
+            #  command:
+            #    - cat
+            #    - /tmp/healthy   
+            #puede ser httpget       
+            httpGet:
+              path: /startup
+              port: 3000
+            feilureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+            inicialDelaySeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /liveness
+              port: 3000
+            feilureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+            inicialDelaySeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 3000
+            feilureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+            inicialDelaySeconds: 5
           # Cargar variables de entorno desde ConfigMap
           envFrom:
             - configMapRef:
