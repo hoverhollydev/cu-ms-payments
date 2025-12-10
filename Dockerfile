@@ -1,11 +1,11 @@
 # IMAGEN BASE
-FROM python:3.11-alpine
+FROM python:3.11-slim
  
 # INSTRUCCIONES
 WORKDIR /app
 
 # Instalar Flask
-RUN pip install flask
+RUN pip install psycopg2-binary
 
 # Copiar el archivo de la aplicación
 COPY app.py .
