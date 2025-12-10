@@ -116,6 +116,10 @@ metadata:
   name: cu-ms-payments
 data:
   LOG_LEVEL: "debug"
+  DATABASE_HOST: "mi-postgres-postgresql-primary.hoverdev-dev.svc.cluster.local"
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: "postgres"
+  DATABASE_USER: "postgres
 ---
 # SECRET: Almacena datos sensibles (contraseñas, tokens, etc.)
 # - Base64 codificado (no es encripción real, solo ofuscación)
@@ -127,7 +131,7 @@ metadata:
   namespace: hoverdev-dev
   name: cu-ms-payments
 data:
-  DATABASE_PASSWORD: U3VwZXJTZWd1cm8yMDI1
+  DATABASE_PASSWORD: TWlQYXNzd29yZFNlZ3VybzEyMw
 ---
 # HORIZONTALPODAUTOSCALER: Escala automáticamente los pods
 # - Aumenta pods si el CPU supera el 70%
