@@ -26,7 +26,7 @@ spec:
         app: cu-ms-payments
     spec:
       containers:
-        - name: cu-ms-payments
+        - name: hola-mundo
           # Imagen Docker a utilizar
           image: hoverdev/cu-ms-payments:{{ imageTag }}
           ports:
@@ -131,7 +131,7 @@ metadata:
   namespace: hoverdev-dev
   name: cu-ms-payments
 data:
-  DATABASE_PASSWORD: TWlQYXNzd29yZFNlZ3VybzEyMw
+  DATABASE_PASSWORD: TWlQYXNzd29yZFNlZ3VybzEyMw==
 ---
 # HORIZONTALPODAUTOSCALER: Escala automáticamente los pods
 # - Aumenta pods si el CPU supera el 70%
