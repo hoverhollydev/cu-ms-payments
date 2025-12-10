@@ -119,7 +119,7 @@ data:
   DATABASE_HOST: "mi-postgres-postgresql-primary.hoverdev-dev.svc.cluster.local"
   DATABASE_PORT: "5432"
   DATABASE_NAME: "postgres"
-  DATABASE_USER: "postgres
+  DATABASE_USER: "postgres"
 ---
 # SECRET: Almacena datos sensibles (contraseñas, tokens, etc.)
 # - Base64 codificado (no es encripción real, solo ofuscación)
