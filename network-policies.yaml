@@ -28,7 +28,7 @@ metadata:
   name: allow-payments-to-postgres
   namespace: hoverdev-dev
 spec:
-  podSelector:        # Protege el StatefulSet de Postgres
+  podSelector:  # Protege el StatefulSet de Postgres
     matchLabels:
       app.kubernetes.io/name: postgresql
   ingress:
