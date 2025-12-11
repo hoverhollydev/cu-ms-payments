@@ -33,7 +33,7 @@ spec:
       app.kubernetes.io/name: postgresql
   ingress:
     - from:
-        - podSelector:   # Solo payments puede entrar
+        - podSelector:  # Solo payments puede entrar
             matchLabels:
               app: cu-ms-payments
       ports:
