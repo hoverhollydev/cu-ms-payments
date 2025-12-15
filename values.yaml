@@ -1,13 +1,13 @@
 # Helm values for cu-ms-payments
-# Chart: edisonpaul4/helm-microservice-chart:1.0.3
-
-# Configuración básica del microservicio
 name: cu-ms-payments
 namespace: hoverdev-dev
-imageTag: "1" # Será sobrescrito por CI/CD con --set imageTag=<value>
+
+registry: hoverdev
+image: cu-ms-payments
+imageTag: "1" # sobrescrito por CI
+
 port: 3000
 
-# Variables de entorno (ConfigMap)
 configMap:
   LOG_LEVEL: "debug"
   DATABASE_HOST: "mi-postgres-postgresql-primary.hoverdev-dev.svc.cluster.local"
@@ -15,12 +15,11 @@ configMap:
   DATABASE_NAME: "postgres"
   DATABASE_USER: "postgres"
 
-# Secrets (valores en base64)
 secret:
   DATABASE_PASSWORD: TWlQYXNzd29yZFNlZ3VybzEyMw==
 
-# Horizontal Pod Autoscaler
 hpa:
+  enabled: true
   minReplicas: 2
   maxReplicas: 6
   cpuUtilization: 90
